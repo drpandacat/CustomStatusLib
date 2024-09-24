@@ -20,7 +20,7 @@
 local LOCAL_CustomStatusLib = {}
 
 function LOCAL_CustomStatusLib.Init()
-    local LOCAL_VERSION = -0.78
+    local LOCAL_VERSION = -0.77999999
 
     if CustomStatusLib then
         if CustomStatusLib.Version > LOCAL_VERSION then
@@ -248,7 +248,7 @@ function LOCAL_CustomStatusLib.Init()
             local data = CustomStatusLib:GetCustomStatusData(entity, k)
 
             if data and data.Sprite then
-                local renderPos = Isaac.WorldToScreen(entity.Position + entity:GetNullOffset("OverlayEffect")) - Vector(0, JumpLib:GetData(entity).Height) + entity.SpriteOffset
+                local renderPos = Isaac.WorldToScreen(entity.Position + entity:GetNullOffset("OverlayEffect")) - Vector(0, JumpLib and JumpLib:GetData(entity).Height or 0) + entity.SpriteOffset
 
                 if entity:ToPlayer() then
                     renderPos.Y = renderPos.Y - entity.SpriteScale.Y * 30
